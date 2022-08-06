@@ -3,19 +3,14 @@ package com.jsmodabackend.model;
 import com.jsmodabackend.model.base.AuditMetadata;
 import lombok.*;
 import org.hibernate.Hibernate;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-import java.time.Instant;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -23,19 +18,22 @@ import java.util.Objects;
 public class Product extends AuditMetadata {
 
     @Column(nullable = false)
-    public String name;
+    private String name;
 
     @Column(nullable = false)
-    public Double sellingPrice;
+    private Double sellingPrice;
 
     @Column(nullable = false)
-    public Double buyingPrice;
+    private Double buyingPrice;
 
     @Column(nullable = false)
-    public int stock;
+    private int stock;
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderItem> itens;
 
     @Override
     public boolean equals(Object o) {

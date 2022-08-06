@@ -23,6 +23,7 @@ public class Category extends AuditMetadata {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private Sex sex;
 
     @OneToMany(mappedBy = "category")
