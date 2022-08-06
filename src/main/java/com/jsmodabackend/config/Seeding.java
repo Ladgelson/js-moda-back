@@ -30,49 +30,49 @@ public class Seeding implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        productRepository.deleteAll();
-        categoryRepository.deleteAll();
-        orderRepository.deleteAll();
-        orderItemRepository.deleteAll();
-
-        Category camisaMasculina = new Category("Camisa Masculina", Sex.MALE, null);
-        Category saia = new Category("Saia", Sex.FEMALE, null);
-        categoryRepository.saveAll(List.of(camisaMasculina, saia));
-
-        Product camisaGolaPolo = Product.builder()
-                .name("Gola Polo")
-                .buyingPrice(25.00)
-                .sellingPrice(40.0)
-                .stock(8)
-                .build();
-        camisaGolaPolo.setCategory(camisaMasculina);
-
-        Product saiaJeans = Product.builder()
-                .name("Saia Jeans Comum")
-                .buyingPrice(40.00)
-                .sellingPrice(50.00)
-                .stock(10)
-                .build();
-        saiaJeans.setCategory(saia);
-        Product saidaDeBanho = Product.builder()
-                .name("Saida de Banho Jonhson")
-                .buyingPrice(18.30)
-                .sellingPrice(27.80)
-                .stock(15)
-                .build();
-        saidaDeBanho.setCategory(saia);
-        saiaJeans = productRepository.save(saiaJeans);
-        saidaDeBanho = productRepository.save(saidaDeBanho);
-        camisaGolaPolo = productRepository.save(camisaGolaPolo);
-
-        Order order1 = new Order(0.00, 0.00, Status.OPENED, null);
-        orderRepository.save(order1);
-
-        OrderItem orderItem1 = new OrderItem(camisaGolaPolo.getName(), 2, camisaGolaPolo.getSellingPrice(), order1, camisaGolaPolo);
-        OrderItem orderItem2 = new OrderItem(saiaJeans.getName(), 2, saiaJeans.getSellingPrice(), order1, saiaJeans);
-        OrderItem orderItem3 = new OrderItem(saidaDeBanho.getName(), 2, saidaDeBanho.getSellingPrice(), order1, saidaDeBanho);
-
-        orderItemRepository.saveAll(List.of(orderItem1, orderItem2, orderItem3));
+//        productRepository.deleteAll();
+//        categoryRepository.deleteAll();
+//        orderRepository.deleteAll();
+//        orderItemRepository.deleteAll();
+//
+//        Category camisaMasculina = new Category("Camisa Masculina", Sex.MALE, null);
+//        Category saia = new Category("Saia", Sex.FEMALE, null);
+//        categoryRepository.saveAll(List.of(camisaMasculina, saia));
+//
+//        Product camisaGolaPolo = Product.builder()
+//                .name("Gola Polo")
+//                .buyingPrice(25.00)
+//                .sellingPrice(40.0)
+//                .stock(8)
+//                .build();
+//        camisaGolaPolo.setCategory(camisaMasculina);
+//
+//        Product saiaJeans = Product.builder()
+//                .name("Saia Jeans Comum")
+//                .buyingPrice(40.00)
+//                .sellingPrice(50.00)
+//                .stock(10)
+//                .build();
+//        saiaJeans.setCategory(saia);
+//        Product saidaDeBanho = Product.builder()
+//                .name("Saida de Banho Jonhson")
+//                .buyingPrice(18.30)
+//                .sellingPrice(27.80)
+//                .stock(15)
+//                .build();
+//        saidaDeBanho.setCategory(saia);
+//        saiaJeans = productRepository.save(saiaJeans);
+//        saidaDeBanho = productRepository.save(saidaDeBanho);
+//        camisaGolaPolo = productRepository.save(camisaGolaPolo);
+//
+//        Order order1 = new Order(0.00, 0.00, Status.OPENED, null);
+//        orderRepository.save(order1);
+//
+//        OrderItem orderItem1 = new OrderItem(camisaGolaPolo.getName(), 2, camisaGolaPolo.getSellingPrice(), order1, camisaGolaPolo);
+//        OrderItem orderItem2 = new OrderItem(saiaJeans.getName(), 2, saiaJeans.getSellingPrice(), order1, saiaJeans);
+//        OrderItem orderItem3 = new OrderItem(saidaDeBanho.getName(), 2, saidaDeBanho.getSellingPrice(), order1, saidaDeBanho);
+//
+//        orderItemRepository.saveAll(List.of(orderItem1, orderItem2, orderItem3));
 
     }
 }
