@@ -6,8 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.print.Pageable;
-
 @RestController
 public class ProductControllerImpl implements ProductController {
     @Override
@@ -16,22 +14,22 @@ public class ProductControllerImpl implements ProductController {
     }
 
     @Override
-    public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<ProductDTO>> findAll(org.springframework.data.domain.Pageable pageable) {
         return null;
     }
 
     @Override
-    public ResponseEntity<ProductDTO> save(ProductDTO productDTO) {
+    public ResponseEntity<Void> save(ProductDTO productDTO) {
         return null;
     }
 
     @Override
-    public ResponseEntity<ProductDTO> update(ProductDTO productDTO) {
+    public ResponseEntity<ProductDTO> update(ProductDTO productDTO, Integer id) {
         return null;
     }
 
     @Override
-    public ResponseEntity<ProductDTO> delete(Integer id) {
+    public ResponseEntity<Void> delete(Integer id) {
         return null;
     }
 }
